@@ -1,7 +1,7 @@
 // Scroll Animation Observer - Resets when scrolling up!
 const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -10% 0px'
+  threshold: 0.5,
+  rootMargin: '0px 0px 0px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {

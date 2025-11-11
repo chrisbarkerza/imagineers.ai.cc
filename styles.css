@@ -414,6 +414,7 @@ section.alt .card {
 .card h2 {
   margin-bottom: var(--spacing-sm);
   color: var(--color-cyan);
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .card p, .feature-card p {
@@ -499,8 +500,9 @@ footer p {
 /* Scroll Animations - Reset on scroll up */
 .reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(25vh);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
@@ -510,13 +512,41 @@ footer p {
 
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transform: translateY(15vh);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Cleaner list style for audience section */
+.clean-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.clean-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.clean-list li:last-child {
+  border-bottom: none;
+}
+
+/* Team avatar presentation */
+.team { text-align: center; }
+.team .card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0 auto var(--spacing-md);
+  display: block;
 }
 
 .slide-in-left {
