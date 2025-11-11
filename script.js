@@ -1,27 +1,30 @@
-// Scroll Animation Observer
+// Scroll Animation Observer - Resets when scrolling up!
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
+  threshold: 0.15,
+  rootMargin: '0px 0px -10% 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+    // Toggle visibility based on whether element is in viewport
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
     }
   });
 }, observerOptions);
 
 // Observe all elements with animation classes
 function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+  const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .reveal');
   animatedElements.forEach(el => observer.observe(el));
 }
 
 // Mobile Menu Toggle
 function initMobileMenu() {
   const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links, .menu');
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
@@ -44,7 +47,7 @@ function initMobileMenu() {
 // Set active navigation link based on current page
 function setActiveNavLink() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinks = document.querySelectorAll('.nav-links a, .menu a');
 
   navLinks.forEach(link => {
     const linkPage = link.getAttribute('href');
@@ -83,21 +86,19 @@ function initSmoothScroll() {
 
 // Header scroll effect
 function initHeaderScroll() {
-  const header = document.querySelector('header');
-  let lastScroll = 0;
+  const header = document.querySelector('header, .site-header');
+  if (!header) return;
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > 100) {
-      header.style.background = 'rgba(6, 7, 3, 0.95)';
+      header.style.background = 'rgba(10, 14, 39, 0.95)';
       header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
     } else {
-      header.style.background = 'rgba(6, 7, 3, 0.8)';
+      header.style.background = 'rgba(10, 14, 39, 0.8)';
       header.style.boxShadow = 'none';
     }
-
-    lastScroll = currentScroll;
   });
 }
 
@@ -125,7 +126,9 @@ if ('IntersectionObserver' in window) {
     });
   });
 
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
   });
 }
