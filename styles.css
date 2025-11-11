@@ -57,7 +57,8 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--color-bg-primary);
+  /* Fixed full-viewport background image with color fallback */
+  background: url('bg4.png') center center / cover no-repeat fixed, var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
