@@ -253,6 +253,39 @@ main {
   color: var(--color-text-secondary);
 }
 
+/* Partner/Sponsor block in hero */
+.partner-block {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: var(--spacing-sm);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: var(--spacing-md) auto; /* equal space above/below */
+}
+
+.partner-block-title {
+  font-size: 1.25rem; /* match hero p size */
+  color: var(--color-text-primary);
+  opacity: 0.95;
+}
+
+.partner-logo {
+  max-width: 540px; /* 3x previous cap */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reduce the large gap below the specific hero line above the partner block */
+.hero-inner > p:nth-of-type(2) {
+  margin-bottom: var(--spacing-md);
+}
+
 .eyebrow {
   display: inline-block;
   font-size: 0.875rem;
@@ -501,8 +534,8 @@ footer p {
 /* Scroll Animations - Reset on scroll up */
 .reveal {
   opacity: 0;
-  transform: translateY(25vh);
-  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(24px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
   will-change: opacity, transform;
 }
 
@@ -513,8 +546,8 @@ footer p {
 
 .fade-in {
   opacity: 0;
-  transform: translateY(15vh);
-  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(16px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 .fade-in.visible {
@@ -552,8 +585,8 @@ footer p {
 
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transform: translateX(-20px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 .slide-in-left.visible {
@@ -563,8 +596,8 @@ footer p {
 
 .slide-in-right {
   opacity: 0;
-  transform: translateX(50px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transform: translateX(20px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 .slide-in-right.visible {
