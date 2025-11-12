@@ -519,6 +519,49 @@ footer .container {
   text-align: center;
 }
 
+/* Comparison Table (Outcome vs AI Edge) */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: var(--spacing-md);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.comparison-table thead th {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+}
+
+.comparison-table tbody tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comparison-table tbody tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Prerequisites list spacing */
+.prerequisites-list {
+  margin-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.prerequisites-list li {
+  margin: 0.4rem 0;
+}
+
 footer p {
   font-size: 0.875rem;
   color: var(--color-text-muted);
